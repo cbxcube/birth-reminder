@@ -1,4 +1,4 @@
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 import utils
 
 FILENAME = "birthrmd.cfg"
@@ -24,4 +24,4 @@ def parse_config(FILENAME):
 _CFG_ = parse_config(FILENAME)
 
 if __name__ == "__main__":
-    print _CFG_
+    print (_CFG_)

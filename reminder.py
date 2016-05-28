@@ -5,17 +5,24 @@ import logging
 from datetime import datetime, timedelta
 
 import utils
-import confparser
+import configparser
 
 
 log = logging.getLogger(__name__)
 
 
-MAILSLIST = confparser._CFG_['csv_path']
-SMTP_SERVER = confparser._CFG_['server']
-SMTP_PORT = confparser._CFG_['port']
-USERNAME = confparser._CFG_['user']
-PASSWORD = confparser._CFG_['passwd']
+#MAILSLIST = confparser._CFG_['csv_path']
+#SMTP_SERVER = confparser._CFG_['server']
+#SMTP_PORT = confparser._CFG_['port']
+#USERNAME = confparser._CFG_['user']
+#PASSWORD = confparser._CFG_['passwd']
+
+
+MAILSLIST = configparser._CFG_['csv_path']
+SMTP_SERVER = configparser._CFG_['server']
+SMTP_PORT = configparser._CFG_['port']
+USERNAME = configparser._CFG_['user']
+PASSWORD = configparser._CFG_['passwd']
 
 
 def send_mail(recipient, subject, body):
@@ -118,7 +125,7 @@ def check_birthday(date):
             log.info("Today is %s's birthday" % name)
             try:
                 send_happybirthday(people[name]['email'])
-            except Exception, e:
+            except Exception as e:
                 log.error(e)
 
         elif stomorrow == sdmbirth:
